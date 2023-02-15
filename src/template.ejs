@@ -301,6 +301,9 @@
                   <th>Minimum</th>
                   <th>90th Percentile</th>
                   <th>95th Percentile</th>
+                  <th>99th Percentile</th>
+                  <th>99.9th Percentile</th>
+                  <th>99.99th Percentile</th>
                 </tr>
               </thead>
               <% } %>
@@ -351,6 +354,21 @@
 
                 <% if(metric.values['p(95)']) { %>
                   <td class="<%= checkFailed(metric, 'p(95)') %>"><%= metric.values['p(95)'].toFixed(2) %></td>
+                <% } else { %>
+                  <td>-</td> 
+                <% } %>
+                <% if(metric.values['p(99)']) { %>
+                  <td class="<%= checkFailed(metric, 'p(99)') %>"><%= metric.values['p(99)'].toFixed(2) %></td>
+                <% } else { %>
+                  <td>-</td> 
+                <% } %>
+                <% if(metric.values['p(99.9)']) { %>
+                  <td class="<%= checkFailed(metric, 'p(99.9)') %>"><%= metric.values['p(99.9)'].toFixed(2) %></td>
+                <% } else { %>
+                  <td>-</td> 
+                <% } %>
+                <% if(metric.values['p(99.99)']) { %>
+                  <td class="<%= checkFailed(metric, 'p(99.99)') %>"><%= metric.values['p(99.99)'].toFixed(2) %></td>
                 <% } else { %>
                   <td>-</td> 
                 <% } %>
